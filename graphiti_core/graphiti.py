@@ -41,7 +41,7 @@ from graphiti_core.helpers import (
     validate_excluded_entity_types,
     validate_group_id,
 )
-from graphiti_core.llm_client import LLMClient, OpenAIClient
+from graphiti_core.llm_client import LLMClient, OpenAIClient, create_llm_client
 from graphiti_core.nodes import (
     CommunityNode,
     EntityNode,
@@ -206,7 +206,8 @@ class Graphiti:
         if llm_client:
             self.llm_client = llm_client
         else:
-            self.llm_client = OpenAIClient()
+            # Use factory to auto-detect appropriate client
+            self.llm_client = create_llm_client()
         if embedder:
             self.embedder = embedder
         else:

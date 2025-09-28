@@ -17,6 +17,16 @@ limitations under the License.
 from .client import LLMClient
 from .config import LLMConfig
 from .errors import RateLimitError
+from .factory import create_llm_client, create_llm_config_from_env
+from .ollama_client import OllamaClient
 from .openai_client import OpenAIClient
 
-__all__ = ['LLMClient', 'OpenAIClient', 'LLMConfig', 'RateLimitError']
+__all__ = [
+    'LLMClient',
+    'OllamaClient',
+    'OpenAIClient',
+    'LLMConfig',
+    'RateLimitError',
+    'create_llm_client',
+    'create_llm_config_from_env',
+]
